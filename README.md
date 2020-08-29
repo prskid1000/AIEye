@@ -1,4 +1,4 @@
-# knowimage.dx.am
+# AIEye
 A online image recognition website
 Extract the RAR file in same folder
 
