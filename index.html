@@ -32,6 +32,7 @@
   <div><h3 id="result">Result will be displayed here</h3></div>
   <br><br>
   <div><button type="button"  onclick="detect()"><h4>DETECT</h4></button><br><br></div>
+  
   <script type="text/javascript">
     var canvas = document.getElementById('canvas');
     var ctx = canvas.getContext('2d');
@@ -42,14 +43,18 @@
   <script type="text/javascript">
   
   var img=new Image();
-  var ctx = document.getElementById('canvas');
-  ctx = ctx.getContext('2d');
-  img.src="files/data.jpg";
-  img.onload = function () {ctx.drawImage(img, 10, 10);};
-  var classifier=ml5.imageClassifier("Mobilenet");
+  img.src="files/data.png";
+  img.onload = function () 
+  {
+     var ctx = document.getElementById('canvas');
+     ctx = ctx.getContext('2d');
+     ctx.drawImage(img, 10, 10, img.width,img.height,10, 10, 300, 300); 
+     $.get("delete.php", function(data, status){});
+  };
    
   function detect()
   {
+    var classifier=ml5.imageClassifier("Mobilenet");
     classifier.classify(img,getResult);
   }
   
@@ -63,6 +68,7 @@
     {
         $("#result").html("Label:"+results[0].label+"<br><br>"+"Confidence:"+results[0].confidence);
     }
+    
   }
   </script>
   </body>
