@@ -3,13 +3,13 @@
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file))
     {
     
-        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
         include('index.html');
+        echo "<h3>File uploaded successfully.";
         
     } 
     else
     {
-         echo "Sorry, there was an error uploading your file.";
          include('index.html');
+         echo "<h3>Sorry, there was an error uploading your file.<h3>";
     }
 ?>

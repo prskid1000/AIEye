@@ -17,21 +17,21 @@
   
   <div>
   <br><br>
-  <div id="a1">FILE UPLOADER</div>
+  <center><div id="a1">FILE UPLOADER</div></center>
   <br><br>
-  <canvas id="canvas" width="300%" height="300%">It's a canvas</canvas>
+  <center><canvas id="canvas" width="300%" height="300%">It's a canvas</canvas></center>
   <br><br><br>
-  <form action="fileupload.php" method="post" enctype="multipart/form-data">
+  <center><form action="fileupload.php" method="post" enctype="multipart/form-data">
     <input type="file" name="fileToUpload" id="fileToUpload">
     <input type="submit" value=" UPLOAD " name="submit" onclick="preload()">
-  </form>
+  </form></center>
   </div> 
   <br><br>
-  <div id="a1">DETECTOR</div>
+  <center><div id="a1">DETECTOR</div></center>
   <br><br>
-  <div><h3 id="result">Result will be displayed here</h3></div>
+  <div><div id="result"></div></div>
   <br><br>
-  <div><button type="button"  onclick="detect()"><h4>DETECT</h4></button><br><br></div>
+  <center><div><button type="button"  onclick="detect()"><h4>DETECT</h4></button><br><br></div></center>
   
   <script type="text/javascript">
     var canvas = document.getElementById('canvas');
@@ -54,6 +54,7 @@
    
   function detect()
   {
+    $("#result").html("<center><h4>Result will be displayed here</h4></center>");
     var classifier=ml5.imageClassifier("Mobilenet");
     classifier.classify(img,getResult);
   }
@@ -66,7 +67,7 @@
     }
     else
     {
-        $("#result").html("Label:"+results[0].label+"<br><br>"+"Confidence:"+results[0].confidence);
+        $("#result").html("<center><h3>Label</h3>"+"<h4>"+results[0].label+"</h4>"+"<h3>Confidence</h3>"+"<h4>"+results[0].confidence+"</h4></center>");
     }
     
   }
